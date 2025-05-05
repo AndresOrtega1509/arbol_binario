@@ -35,4 +35,13 @@ public class Nodo {
     public void setDerecho(Nodo derecho) {
         this.derecho = derecho;
     }
+
+    @Override
+    public String toString() {
+        return "Nodo{" +
+                "dato=" + dato +
+                ", izquierdo=" + izquierdo +
+                ", derecho=" + derecho +
+                '}';
+    }
 }

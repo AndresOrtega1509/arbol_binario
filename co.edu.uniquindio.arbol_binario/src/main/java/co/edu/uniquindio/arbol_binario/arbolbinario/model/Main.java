@@ -2,7 +2,7 @@ package co.edu.uniquindio.arbol_binario.arbolbinario.model;
 
 public class Main {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
 
         ArbolBinario arbolBinario = new ArbolBinario();
 
@@ -21,5 +21,18 @@ public class Main {
         System.out.println();
         System.out.println(arbolBinario.existeDato(19));
         System.out.println(arbolBinario.obtenerPeso());
+        System.out.println(arbolBinario.obtenerAltura());
+        System.out.println(arbolBinario.obtenerNivel());
+        System.out.println(arbolBinario.contarHojas());
+        System.out.println(arbolBinario.obtenerMenor());
+        arbolBinario.imprimirAmplitud();
+        System.out.println();
+        arbolBinario.eliminarDato(1);
+        arbolBinario.recorrerArbolPreOrden();
+        System.out.println();
+        System.out.println(arbolBinario.obtenerNodoMayor());
+        System.out.println(arbolBinario.obtenerNodoMenor());
+        arbolBinario.borrarArbol();
+        arbolBinario.recorrerArbolPreOrden();
     }
 }
