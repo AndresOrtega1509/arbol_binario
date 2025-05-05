@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.canvas.Canvas?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml"
+            fx:controller="co.edu.uniquindio.arbol_binario.arbolbinario.ArbolBinarioController"
+            prefWidth="800" prefHeight="600">
+
+  <top>
+    <VBox spacing="10">
+      <padding>
+        <Insets top="10" right="10" bottom="10" left="10"/>
+      </padding>
+      <HBox spacing="10">
+        <Label text="Dato:"/>
+        <TextField fx:id="txtDato" promptText="Ingrese un número"/>
+        <Button text="Agregar" onAction="#agregarDato"/>
+        <Button text="Eliminar" onAction="#eliminarDato"/>
+        <Button text="Borrar Árbol" onAction="#borrarArbol"/>
+      </HBox>
+
+      <HBox spacing="10">
+        <Button text="Existe Dato" onAction="#existeDato"/>
+        <Button text="Está Vacío" onAction="#estaVacio"/>
+        <Button text="Peso" onAction="#obtenerPeso"/>
+        <Button text="Altura" onAction="#obtenerAltura"/>
+        <Button text="Nivel" onAction="#obtenerNivel"/>
+        <Button text="Hojas" onAction="#contarHojas"/>
+      </HBox>
+
+      <HBox spacing="10">
+        <Button text="Menor" onAction="#obtenerMenor"/>
+        <Button text="Mayor Nodo" onAction="#obtenerNodoMayor"/>
+        <Button text="Menor Nodo" onAction="#obtenerNodoMenor"/>
+        <Button text="InOrden" onAction="#recorrerInOrden"/>
+        <Button text="PreOrden" onAction="#recorrerPreOrden"/>
+        <Button text="PostOrden" onAction="#recorrerPostOrden"/>
+        <Button text="Amplitud" onAction="#imprimirAmplitud"/>
+      </HBox>
+    </VBox>
+  </top>
+
+  <center>
+    <Canvas fx:id="canvasArbol" width="780" height="400"/>
+  </center>
+
+  <bottom>
+    <TextArea fx:id="txtSalida" prefRowCount="5" wrapText="true" editable="false"/>
+  </bottom>
+
+</BorderPane>
+
+

@@ -14,7 +14,7 @@ public class ArbolBinario {
         peso = 0;
     }
 
-    private boolean estaVacio(){
+    public boolean estaVacio(){
         return peso == 0;
     }
 
@@ -267,5 +267,26 @@ public class ArbolBinario {
     }
 
 
+    public Nodo obtenerRaiz() {
+        return raiz;
+    }
 
+    public String mostrarArbol() {
+        StringBuilder sb = new StringBuilder();
+        mostrarArbolRec(raiz, sb, 0);
+        return sb.toString();
+    }
+
+    private void mostrarArbolRec(Nodo nodo, StringBuilder sb, int nivel) {
+        if (nodo == null) {
+            return;
+        }
+
+        mostrarArbolRec(nodo.getDerecho(), sb, nivel + 1);
+
+        sb.append("   ".repeat(Math.max(0, nivel)));
+        sb.append(nodo.getDato()).append("\n");
+
+        mostrarArbolRec(nodo.getIzquierdo(), sb, nivel + 1);
+    }
 }
