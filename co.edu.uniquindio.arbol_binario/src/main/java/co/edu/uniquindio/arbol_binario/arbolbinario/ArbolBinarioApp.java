@@ -7,12 +7,12 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
-public class HelloApplication extends Application {
+public class ArbolBinarioApp extends Application {
     @Override
     public void start(Stage stage) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("vista-arbolBinario.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(ArbolBinarioApp.class.getResource("vista-arbolBinario.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
-        stage.setTitle("Hello!");
+        stage.setTitle("Arbol-Binario");
         stage.setScene(scene);
         stage.show();
     }

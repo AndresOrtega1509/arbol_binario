@@ -1,6 +1,8 @@
 package co.edu.uniquindio.arbol_binario.arbolbinario.model;
 
+import java.util.ArrayList;
 import java.util.LinkedList;
+import java.util.List;
 import java.util.Queue;
 
 public class ArbolBinario {
@@ -48,49 +50,55 @@ public class ArbolBinario {
         }
     }
 
-    public void recorrerArbolInOrden(){
-
-        inOrden(raiz);
+    public List<Integer> recorrerArbolInOrden(){
+        List<Integer> recorrido = new ArrayList<>();
+        inOrden(raiz, recorrido);
+        return recorrido;
     }
 
-    private void inOrden(Nodo raiz) {
+    private void inOrden(Nodo raiz, List<Integer> recorrido) {
 
         if (raiz == null){
             return;
         }
-        inOrden(raiz.getIzquierdo());
+        inOrden(raiz.getIzquierdo(), recorrido);
         System.out.print(raiz.getDato() + " ");
-        inOrden(raiz.getDerecho());
+        recorrido.add(raiz.getDato());
+        inOrden(raiz.getDerecho(), recorrido);
     }
 
-    public void recorrerArbolPreOrden(){
-
-        preOrden(raiz);
+    public List<Integer> recorrerArbolPreOrden(){
+        List<Integer> recorrido = new ArrayList<>();
+        preOrden(raiz, recorrido);
+        return recorrido;
     }
 
-    private void preOrden(Nodo raiz) {
+    private void preOrden(Nodo raiz, List<Integer> recorrido) {
 
         if (raiz == null){
             return;
         }
         System.out.print(raiz.getDato() + " ");
-        preOrden(raiz.getIzquierdo());
-        preOrden(raiz.getDerecho());
+        recorrido.add(raiz.getDato());
+        preOrden(raiz.getIzquierdo(), recorrido);
+        preOrden(raiz.getDerecho(), recorrido);
     }
 
-    public void recorrerArbolPosOrden(){
-
-        posOrden(raiz);
+    public List<Integer> recorrerArbolPosOrden(){
+        List<Integer> recorrido = new ArrayList<>();
+        posOrden(raiz, recorrido);
+        return recorrido;
     }
 
-    private void posOrden(Nodo raiz) {
+    private void posOrden(Nodo raiz, List<Integer> recorrido) {
 
         if (raiz == null){
             return;
         }
-        posOrden(raiz.getIzquierdo());
-        posOrden(raiz.getDerecho());
+        posOrden(raiz.getIzquierdo(), recorrido);
+        posOrden(raiz.getDerecho(), recorrido);
         System.out.print(raiz.getDato() + " ");
+        recorrido.add(raiz.getDato());
     }
 
     public boolean existeDato(int dato){
@@ -156,7 +164,7 @@ public class ArbolBinario {
 
     public int obtenerMenor() throws Exception {
         if (raiz == null) {
-            throw new RuntimeException("El árbol está vacío");
+            throw new RuntimeException("El árbol está vacío.");
         }
 
         Nodo actual = raiz;
@@ -166,18 +174,19 @@ public class ArbolBinario {
         return actual.getDato();
     }
 
-    public void imprimirAmplitud() {
+    public List<Integer> imprimirAmplitud() {
         if (raiz == null) {
             System.out.println("El árbol está vacío");
-            return;
+            return null;
         }
-
+        List<Integer> recorridoAmplitud = new ArrayList<>();
         Queue<Nodo> cola = new LinkedList<>();
         cola.add(raiz);
 
         while (!cola.isEmpty()) {
             Nodo actual = cola.poll();
             System.out.print(actual.getDato() + " ");
+            recorridoAmplitud.add(actual.getDato());
 
             if (actual.getIzquierdo() != null) {
                 cola.add(actual.getIzquierdo());
@@ -186,6 +195,7 @@ public class ArbolBinario {
                 cola.add(actual.getDerecho());
             }
         }
+        return recorridoAmplitud;
     }
 
     public void eliminarDato(int dato) {
@@ -204,14 +214,17 @@ public class ArbolBinario {
         } else {
             // Caso 1: sin hijos
             if (aux.getIzquierdo() == null && aux.getDerecho() == null) {
+                peso--;
                 return null;
             }
 
             // Caso 2: un solo hijo
             if (aux.getIzquierdo() == null) {
+                peso--;
                 return aux.getDerecho();
             }
             if (aux.getDerecho() == null) {
+                peso--;
                 return aux.getIzquierdo();
             }
 
@@ -269,24 +282,5 @@ public class ArbolBinario {
 
     public Nodo obtenerRaiz() {
         return raiz;
-    }
-
-    public String mostrarArbol() {
-        StringBuilder sb = new StringBuilder();
-        mostrarArbolRec(raiz, sb, 0);
-        return sb.toString();
-    }
-
-    private void mostrarArbolRec(Nodo nodo, StringBuilder sb, int nivel) {
-        if (nodo == null) {
-            return;
-        }
-
-        mostrarArbolRec(nodo.getDerecho(), sb, nivel + 1);
-
-        sb.append("   ".repeat(Math.max(0, nivel)));
-        sb.append(nodo.getDato()).append("\n");
-
-        mostrarArbolRec(nodo.getIzquierdo(), sb, nivel + 1);
     }
 }

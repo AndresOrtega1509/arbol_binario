@@ -1,5 +1,7 @@
 package co.edu.uniquindio.arbol_binario.arbolbinario.model;
 
+import java.util.LinkedList;
+
 public class Main {
 
     public static void main(String[] args) throws Exception {
@@ -34,5 +36,6 @@ public class Main {
         System.out.println(arbolBinario.obtenerNodoMenor());
         arbolBinario.borrarArbol();
         arbolBinario.recorrerArbolPreOrden();
+
     }
 }

@@ -1,55 +1,63 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?import javafx.scene.canvas.Canvas?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.geometry.Insets?>
 
-<BorderPane xmlns:fx="http://javafx.com/fxml"
-            fx:controller="co.edu.uniquindio.arbol_binario.arbolbinario.ArbolBinarioController"
-            prefWidth="800" prefHeight="600">
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.canvas.Canvas?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane prefHeight="600" prefWidth="800" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/21" fx:controller="co.edu.uniquindio.arbol_binario.arbolbinario.ArbolBinarioController">
 
   <top>
-    <VBox spacing="10">
+    <VBox spacing="10" style="-fx-background-color: #D2F7FF;">
       <padding>
-        <Insets top="10" right="10" bottom="10" left="10"/>
+        <Insets bottom="10" left="10" right="10" top="10" />
       </padding>
-      <HBox spacing="10">
-        <Label text="Dato:"/>
-        <TextField fx:id="txtDato" promptText="Ingrese un número"/>
-        <Button text="Agregar" onAction="#agregarDato"/>
-        <Button text="Eliminar" onAction="#eliminarDato"/>
-        <Button text="Borrar Árbol" onAction="#borrarArbol"/>
+      <HBox alignment="CENTER" spacing="10">
+        <Label text="Dato:">
+               <font>
+                  <Font name="System Bold Italic" size="12.0" />
+               </font></Label>
+        <TextField fx:id="txtDato" promptText="Ingrese un número" />
+        <Button onAction="#agregarDato" style="-fx-background-color: #82C8BD;" text="Agregar" />
+        <Button onAction="#eliminarDato" style="-fx-background-color: #82C8BD;" text="Eliminar Dato" />
+        <Button onAction="#existeDato" style="-fx-background-color: #82C8BD;" text="Existe Dato" />
       </HBox>
 
-      <HBox spacing="10">
-        <Button text="Existe Dato" onAction="#existeDato"/>
-        <Button text="Está Vacío" onAction="#estaVacio"/>
-        <Button text="Peso" onAction="#obtenerPeso"/>
-        <Button text="Altura" onAction="#obtenerAltura"/>
-        <Button text="Nivel" onAction="#obtenerNivel"/>
-        <Button text="Hojas" onAction="#contarHojas"/>
+      <HBox alignment="CENTER" spacing="10">
+        <Button onAction="#estaVacio" style="-fx-background-color: #82C8BD;" text="Está Vacío" />
+        <Button onAction="#obtenerPeso" style="-fx-background-color: #82C8BD;" text="Peso" />
+        <Button onAction="#obtenerAltura" style="-fx-background-color: #82C8BD;" text="Altura" />
+        <Button onAction="#obtenerNivel" style="-fx-background-color: #82C8BD;" text="Nivel" />
+        <Button onAction="#contarHojas" style="-fx-background-color: #82C8BD;" text="Hojas" />
+        <Button onAction="#borrarArbol" style="-fx-background-color: #82C8BD;" text="Borrar Árbol" />
       </HBox>
 
-      <HBox spacing="10">
-        <Button text="Menor" onAction="#obtenerMenor"/>
-        <Button text="Mayor Nodo" onAction="#obtenerNodoMayor"/>
-        <Button text="Menor Nodo" onAction="#obtenerNodoMenor"/>
-        <Button text="InOrden" onAction="#recorrerInOrden"/>
-        <Button text="PreOrden" onAction="#recorrerPreOrden"/>
-        <Button text="PostOrden" onAction="#recorrerPostOrden"/>
-        <Button text="Amplitud" onAction="#imprimirAmplitud"/>
+      <HBox alignment="CENTER" spacing="10">
+        <Button onAction="#obtenerMenor" style="-fx-background-color: #82C8BD;" text="Menor" />
+        <Button onAction="#obtenerNodoMayor" style="-fx-background-color: #82C8BD;" text="Mayor Nodo" />
+        <Button onAction="#obtenerNodoMenor" style="-fx-background-color: #82C8BD;" text="Menor Nodo" />
+        <Button onAction="#recorrerInOrden" style="-fx-background-color: #82C8BD;" text="InOrden" />
+        <Button onAction="#recorrerPreOrden" style="-fx-background-color: #82C8BD;" text="PreOrden" />
+        <Button onAction="#recorrerPostOrden" style="-fx-background-color: #82C8BD;" text="PostOrden" />
+        <Button onAction="#imprimirAmplitud" style="-fx-background-color: #82C8BD;" text="Amplitud" />
       </HBox>
+         <Separator prefWidth="200.0" />
     </VBox>
   </top>
 
   <center>
-    <Canvas fx:id="canvasArbol" width="780" height="400"/>
+    <Canvas fx:id="canvasArbol" height="400" width="780" />
   </center>
 
   <bottom>
-    <TextArea fx:id="txtSalida" prefRowCount="5" wrapText="true" editable="false"/>
+    <TextArea fx:id="txtSalida" editable="false" prefRowCount="5" style="-fx-background-color: #D3D3D3;" wrapText="true" />
   </bottom>
 
 </BorderPane>
-
-
